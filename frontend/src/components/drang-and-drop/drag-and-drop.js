@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './drag-and-drop.scss';
 
 export const DragAndDrop = () => {
@@ -18,14 +19,12 @@ export const DragAndDrop = () => {
     const onDropHandler = async (e) => {
         try {
             e.preventDefault();
-            let files = [...e.dataTransfer.files];
-            const formData = new FormData();
-            files.forEach(e => {
-                formData.append('file', e);
-                axios.post()
-            })
+            let files = dataTransfer.files;
+            const data = new FormData();
+            data.append("image", files);
+            await axios.post('/data/addFile', data);
             setDrag(false);
-        } catch(err) {
+        } catch (err) {
             console.error(err)
         }
     }
@@ -40,13 +39,13 @@ export const DragAndDrop = () => {
                         onDragLeave={e => dragLiveHandler(e)}
                         onDragOver={e => dragStartHandler(e)}
                         onDrop={e => onDropHandler(e)}
-                    >Отпустите файл для загрузки</div> :
+                    >Отпустите фото для загрузки</div> :
                     <div
                         className="drop_area"
                         onDragStart={e => dragStartHandler(e)}
                         onDragLeave={e => dragLiveHandler(e)}
                         onDragOver={e => dragStartHandler(e)}
-                    >Перенесите файл для загрузки</div>
+                    >Перенесите фото для загрузки</div>
             }
         </div>
     )
