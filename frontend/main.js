@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Tray } = require('electron');
+const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
 
 let mainWindow, tray;
@@ -23,6 +23,13 @@ function createTray() {
     tray.on('click', () => {
         mainWindow.isVisible() ? mainWindow.hide() : showWindow();
     })
+
+    const contextMenu = Menu.buildFromTemplate([
+        { label: 'Открыть', click: () => showWindow() },
+        { label: 'Выход', role: 'quit' }
+    ]);
+
+    tray.setContextMenu(contextMenu);
 
     function showWindow() {
         const windowBounds = mainWindow.getBounds();
