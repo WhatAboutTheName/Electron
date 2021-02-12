@@ -11,9 +11,10 @@ function createWindow() {
         resizable: false,
         alwaysOnTop: true,
         frame: false,
+        show: false,
         backgroundColor: '#412adb'
     });
-    mainWindow.hide();
+
     mainWindow.loadFile('index.html');
 }
 
@@ -44,4 +45,4 @@ function createTray() {
 app.on('ready', () => {
     createTray();
     createWindow();
-})
+});
