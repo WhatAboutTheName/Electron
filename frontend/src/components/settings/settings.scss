@@ -1,0 +1,38 @@
+.settings_close {
+  max-width: 15px;
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+  padding-right: 3px;
+}
+
+.drag_and_drop {
+  -webkit-app-region: drag;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.settings_header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 20px;
+    margin-bottom: 5px;
+    border-bottom: 4px solid #12065c;
+}
+
+.settings_content {
+    min-height: 363px;
+    min-height: 363px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.settings_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}

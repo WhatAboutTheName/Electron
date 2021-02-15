@@ -6,19 +6,16 @@ export const DragAndDrop = () => {
 
     const [drag, setDrag] = useState(false);
 
-    const dragStartHandler = (e) => {
-        e.preventDefault();
+    const dragStartHandler = () => {
         setDrag(true);
     }
 
-    const dragLiveHandler = (e) => {
-        e.preventDefault();
+    const dragLiveHandler = () => {
         setDrag(false);
     }
 
-    const onDropHandler = async (e) => {
+    const onDropHandler = async () => {
         try {
-            e.preventDefault();
             let files = dataTransfer.files;
             const data = new FormData();
             data.append("image", files);
@@ -30,21 +27,21 @@ export const DragAndDrop = () => {
     }
 
     return (
-        <div className="drag_and_drop">
+        <div className="drag_and_drop_area">
             {
                 drag ?
                     <div
                         className="drop_area"
-                        onDragStart={e => dragStartHandler(e)}
-                        onDragLeave={e => dragLiveHandler(e)}
-                        onDragOver={e => dragStartHandler(e)}
-                        onDrop={e => onDropHandler(e)}
+                        onDragStart={_ => dragStartHandler()}
+                        onDragLeave={_ => dragLiveHandler()}
+                        onDragOver={_ => dragStartHandler()}
+                        onDrop={_ => onDropHandler()}
                     >Отпустите фото для загрузки</div> :
                     <div
                         className="drop_area"
-                        onDragStart={e => dragStartHandler(e)}
-                        onDragLeave={e => dragLiveHandler(e)}
-                        onDragOver={e => dragStartHandler(e)}
+                        onDragStart={_ => dragStartHandler()}
+                        onDragLeave={_ => dragLiveHandler()}
+                        onDragOver={_ => dragStartHandler()}
                     >Перенесите фото для загрузки</div>
             }
         </div>

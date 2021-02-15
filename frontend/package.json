@@ -1,7 +1,8 @@
 {
   "name": "photo_album",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "electron/main.js",
+  "homepage": "./",
   "license": "MIT",
   "scripts": {
     "dev": "webpack --config webpack.config.js --watch --mode development",
@@ -11,11 +12,14 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "axios": "^0.21.1",
-    "electron": "^11.2.3",
+    "html-webpack-plugin": "^5.1.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "webpack-node-externals": "^2.5.2"
   },
   "devDependencies": {
+    "electron": "^11.2.3",
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
@@ -23,6 +27,7 @@
     "concurrently": "^5.3.0",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.2",
+    "electron-builder": "^22.9.1",
     "electron-reload": "^1.5.0",
     "sass": "^1.32.6",
     "sass-loader": "^11.0.1",
